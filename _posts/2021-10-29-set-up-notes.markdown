@@ -43,7 +43,9 @@ For this site, I am using a branch called `gh-pages`; the entirety of my site
 is the Jekyll site so I don't need to bother making a sub-directory called
 `docs/` or anything like that.
 
-Once stuff is installed, you can run the development server with `bundle exec jekyll serve`.
+Once stuff is installed, you can run the development server with `bundle exec
+jekyll serve`. As you edit and save changes (e.g. in your `_posts/` directory)
+Jekyll will re-build your project.
 
 ## Minimal Viable Product
 

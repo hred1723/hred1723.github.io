@@ -65,4 +65,43 @@ root@a6299f284249:/myapp# chgrp -R 1000 app/
 
 ```
 
-(To be continued...)
+### Troubleshooting a database issue
+
+While writing this tutorial, I got an error! In the browser at
+`localhost:3000/articles`, Rails gave me a message like this:
+
+> Migrations are pending. To resolve this issue, run: bin/rails db:migrate RAILS\_ENV=development 
+
+Checking the server console, it looked like the relation (table) `articles`
+already existed; I think I made this when I was trying to figure out some
+stuff. So there was nothing important in it&mdash;must delete so I can run the
+migration scripts successfully!
+
+Connect to the postgres container (find it with `docker ps` and then `docker
+exec CONTAINER_ID bash` to get inside). If anyone knows better ways to do this,
+let me know!  Using the `psql` program, you can list all databases with `\l`.
+See [this page](https://www.postgresqltutorial.com/postgresql-show-databases/)
+for more ways to list databases in PostgreSQL.
+
+I then changed to my app's development database with `\c myapp_development`. 
+Use `\dt` to show tables. See [this
+page](https://www.postgresqltutorial.com/postgresql-show-tables/) for more
+information on that.
+
+Now I can do a
+
+```sql
+DROP TABLE articles;
+```
+
+## Continuing the tutorial: using a model
+
+In the official tutorial, we continue from [section
+5.3](https://guides.rubyonrails.org/getting_started.html). 
+From the web server container, get into a Ruby console:
+
+```bash
+bin/rails console
+```
+
+

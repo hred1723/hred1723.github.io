@@ -104,4 +104,17 @@ From the web server container, get into a Ruby console:
 bin/rails console
 ```
 
+### Troubleshooting a validation problem
+
+I've run into a problem at step 6.3.3 of the [Getting
+Started](https://guides.rubyonrails.org/getting_started.html) tutorial!  When I
+subumit an invalid form, the validation messages explaining what went wrong
+don't display! Curiously, in Chrome, if I navigate to the **network tab** in
+the developer tools, I do see that the correct HTML *does* get sent back to me
+(with a 200 status), but it is not readily displayed.
+
+I'll have to look more into how this is supposed to work because I've mainly
+worked on client-side validations in the past&mdash;some JavaScript running in
+the browser would find an error in user input and then not even allow the user
+to submit data rather than validation on the happening on the server side.
 
